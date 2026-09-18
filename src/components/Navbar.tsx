@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, MessageCircle, ArrowRight } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import { companyData } from "@/data/companyData";
 
 interface NavbarProps {
@@ -69,6 +69,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
           {/* Botão Solicitar Orçamento - Azul Corporativo VIMORAIZ */}
           <a
             href="#contacto"
+            onClick={onOpenQuote}
             className="px-5 py-2.5 rounded-lg bg-brand-navy hover:bg-brand-primary-hover text-white font-semibold text-xs tracking-wide transition-colors shadow-xs active:scale-95 cursor-pointer"
           >
             Solicitar Orçamento

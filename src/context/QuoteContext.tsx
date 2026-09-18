@@ -42,7 +42,7 @@ export const useQuote = () => {
     return {
       selectedService: "",
       setSelectedService: () => {},
-      scrollToContact: (serviceTitle?: string) => {
+      scrollToContact: () => {
         const el = document.getElementById("contacto");
         if (el) el.scrollIntoView({ behavior: "smooth" });
       },

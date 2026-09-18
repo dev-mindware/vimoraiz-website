@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   MapPin,
@@ -54,11 +54,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  useEffect(() => {
+  const [prevService, setPrevService] = useState(effectiveService);
+  if (effectiveService !== prevService) {
+    setPrevService(effectiveService);
     if (effectiveService) {
       setFormData((prev) => ({ ...prev, service: effectiveService }));
     }
-  }, [effectiveService]);
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

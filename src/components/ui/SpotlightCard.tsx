@@ -24,7 +24,7 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
   onHover,
   index
 }) => {
-  const { mouseX, mouseY, isHovered, spotlightProps } = useSpotlight();
+  const { isHovered, spotlightProps } = useSpotlight();
   const isDark = isActive || isHovered;
 
   return (
@@ -34,11 +34,11 @@ export const SpotlightCard: React.FC<SpotlightCardProps> = ({
       viewport={{ once: true, margin: "-30px" }}
       transition={{ duration: 0.5, delay: index * 0.04 }}
       {...spotlightProps}
-      onMouseEnter={(e) => {
+      onMouseEnter={() => {
         spotlightProps.onMouseEnter();
         if (onHover) onHover(number);
       }}
-      onMouseLeave={(e) => {
+      onMouseLeave={() => {
         spotlightProps.onMouseLeave();
         if (onHover) onHover(null);
       }}

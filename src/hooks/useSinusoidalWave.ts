@@ -50,7 +50,6 @@ export function useSinusoidalWave({
   const [isPausedAtCenter, setIsPausedAtCenter] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
   const [transitionProgress, setTransitionProgress] = useState(0); // 0 a 1
-  const [direction, setDirection] = useState<1 | -1>(1); // 1 = avança, -1 = recua
 
   const animationFrameRef = useRef<number | null>(null);
   const pauseTimerRef = useRef<NodeJS.Timeout | null>(null);
@@ -61,7 +60,6 @@ export function useSinusoidalWave({
     if (isAnimatingRef.current) return;
     isAnimatingRef.current = true;
     setIsPausedAtCenter(false);
-    setDirection(dir);
 
     const startTime = performance.now();
 

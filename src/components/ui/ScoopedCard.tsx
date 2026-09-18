@@ -11,7 +11,7 @@ interface ScoopedCardProps {
   onSelect: (service: ServiceItem) => void;
 }
 
-export const ScoopedCard: React.FC<ScoopedCardProps> = ({ service, index, onSelect }) => {
+export const ScoopedCard: React.FC<ScoopedCardProps> = ({ service, onSelect }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (

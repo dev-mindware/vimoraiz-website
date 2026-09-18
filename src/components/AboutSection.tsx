@@ -3,7 +3,6 @@
 import React, { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { companyData } from "@/data/companyData";
 import { SectionSpotlight } from "./ui/SectionSpotlight";
 
 export const AboutSection: React.FC = () => {

@@ -88,6 +88,7 @@ export default function Hero({ onOpenDemo }: HeroProps) {
             >
               <a
                 href="#contacto"
+                onClick={onOpenDemo}
                 className="group relative inline-flex items-center justify-center gap-3 bg-brand-navy hover:bg-brand-primary-hover text-white px-7 py-3.5 rounded-lg font-semibold text-sm sm:text-base transition-colors duration-200 cursor-pointer shadow-sm hover:shadow active:scale-[0.98]"
               >
                 <span>Solicitar Orçamento</span>
