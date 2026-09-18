@@ -1,0 +1,248 @@
+@import "tailwindcss";
+
+@theme {
+  /* -------------------------------------------------------------------------
+   * 1. CORES INSTITUCIONAIS & MARCA (VIMORAIZ)
+   * ------------------------------------------------------------------------- */
+  --color-brand-navy: #1b3d5c;              /* Azul Corporativo Oficial / CTAs Primários */
+  --color-brand-navy-dark: #0a1926;         /* Navy profundo para backdrops e acentos */
+  --color-brand-navy-kpi: #101e2e;          /* Fundo executivo para painel de métricas */
+  --color-brand-navy-card: #0b1e33;         /* Fundo de card ativo em modo claro */
+  --color-brand-navy-border: #163556;       /* Borda de card navy ativo */
+  --color-brand-navy-badge: #13304c;        /* Badge squircle de card ativo */
+  --color-brand-blue: #41729b;              /* Azul Secundário / Subtítulos / Links */
+  --color-brand-slate: #0f2233;             /* Texto principal / Títulos em modo claro */
+  --color-brand-mist: #f0f5fa;              /* Fundo suave para cards e inputs */
+  --color-brand-surface: #e2edf6;           /* Superfície clara de destaque e seleções */
+  --color-brand-border: #b9d3e8;            /* Bordas de marca e numeração marca d'água */
+  --color-brand-border-dark: #d0e1ef;       /* Bordas reforçadas de caixas informativas */
+  --color-brand-yellow: #eab308;            /* Amarelo institucional ouro */
+  --color-brand-emerald: #10b981;           /* Verde de conformidade e sucesso */
+  --color-brand-primary-hover: #2563eb;     /* Azul de transição/hover ativo nos botões */
+
+  /* -------------------------------------------------------------------------
+   * 2. CORES DARK MODE EXECUTIVO (ANTI-OFUSCAMENTO / SLATE CHARCOAL)
+   * ------------------------------------------------------------------------- */
+  --color-brand-steel: #5b9dd9;             /* Azul aço confortável para destaques e ícones */
+  --color-brand-steel-hover: #7bb5e8;       /* Hover em links e ícones escuros */
+
+  /* -------------------------------------------------------------------------
+   * 3. PARCEIROS & CRÉDITOS OFICIAIS (PALETA HARMONIZADA VIMORAIZ)
+   * ------------------------------------------------------------------------- */
+  --color-brand-mindware: #41729b;          /* Azul corporativo de destaque Mindware */
+  --color-brand-mindware-hover: #5b9dd9;    /* Hover azul aço */
+
+  /* -------------------------------------------------------------------------
+   * 4. RITMO DE SEÇÕES (CANVAS LIGHT & DARK ALTERNATION - MINDWARE INK PALETTE)
+   * ------------------------------------------------------------------------- */
+  --color-canvas-light-1: #ffffff;          /* Fundo Claro 1: Hero, Valores, Porquê, Contactos */
+  --color-canvas-light-2: #f8fafc;          /* Fundo Claro 2: Sobre Nós, Serviços, Testemunhos */
+  --color-canvas-dark-1: #0f0f0f;           /* Fundo Escuro 1: Mindware Ink Profundo (#0f0f0f) */
+  --color-canvas-dark-2: #161616;           /* Fundo Escuro 2: Mindware Ink Soft Alternado (#161616) */
+
+  /* -------------------------------------------------------------------------
+   * 5. SUPERFÍCIES, CARTÕES E RODAPÉS (DARK MODE MINDWARE)
+   * ------------------------------------------------------------------------- */
+  --color-surface-dark-elevated: #202020;   /* Modais e cards elevados (Mindware Popover/Surface) */
+  --color-surface-dark-card: #1c1c1c;       /* Cartões neutros escuros (Mindware Card) */
+  --color-surface-dark-card-active: #262626;/* Cartão ativo/hover (Mindware Active Card) */
+  --color-surface-dark-pill: #282828;       /* Pills e badges squircle neutros */
+  --color-surface-dark-hover: #222222;      /* Hover em botões e superfícies */
+  --color-surface-dark-deep: #121212;       /* Painel de métricas e KPIs em preto neutro */
+  --color-footer-light: #0f2233;            /* Rodapé corporativo clássico */
+  --color-footer-dark: #0a0a0a;             /* Rodapé em preto profundo Mindware (#0a0a0a) */
+
+  /* -------------------------------------------------------------------------
+   * 6. SCROLLBARS DO SISTEMA
+   * ------------------------------------------------------------------------- */
+  --color-scrollbar-light-track: #f1f5f9;
+  --color-scrollbar-light-thumb: #cbd5e1;
+  --color-scrollbar-light-hover: #94a3b8;
+  --color-scrollbar-dark-track: #0f0f0f;
+  --color-scrollbar-dark-thumb: #282828;
+  --color-scrollbar-dark-hover: #3a3a3a;
+
+  /* -------------------------------------------------------------------------
+   * 7. SUPERFÍCIES INTERATIVAS ESPECIAIS & ANÉIS DE TESTEMUNHOS
+   * ------------------------------------------------------------------------- */
+  --color-brand-surface-subtle: #dbe9f4;
+  --color-surface-dark-pill-active: #222222;
+  --color-surface-dark-hover-pill: #262626;
+  --color-testimonial-crimson: #dc2626;
+  --color-testimonial-terracotta: #41729b;
+  --color-testimonial-wine: #9f1239;
+  --color-testimonial-slate: #1e293b;
+  --color-testimonial-rose: #be123c;
+  --color-testimonial-deepwine: #881337;
+  --color-testimonial-darkred: #991b1b;
+}
+
+@layer base {
+  :root {
+    --font-sans: var(--font-plus-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    
+    /* Variáveis CSS Globais para Uso em Estilos, Componentes e SVGs */
+    --brand-navy: #1b3d5c;
+    --brand-navy-dark: #0a1926;
+    --brand-navy-kpi: #101e2e;
+    --brand-navy-card: #0b1e33;
+    --brand-navy-border: #163556;
+    --brand-navy-badge: #13304c;
+    --brand-blue: #41729b;
+    --brand-slate: #0f2233;
+    --brand-mist: #f0f5fa;
+    --brand-surface: #e2edf6;
+    --brand-border: #b9d3e8;
+    --brand-border-dark: #d0e1ef;
+    --brand-yellow: #eab308;
+    --brand-emerald: #10b981;
+    --brand-primary-hover: #2563eb;
+
+    --brand-steel: #5b9dd9;
+    --brand-steel-hover: #7bb5e8;
+
+    --brand-mindware: #41729b;
+    --brand-mindware-hover: #5b9dd9;
+
+    --canvas-light-1: #ffffff;
+    --canvas-light-2: #f8fafc;
+    --canvas-dark-1: #0f0f0f;
+    --canvas-dark-2: #161616;
+
+    --surface-dark-elevated: #202020;
+    --surface-dark-card: #1c1c1c;
+    --surface-dark-card-active: #262626;
+    --surface-dark-pill: #282828;
+    --surface-dark-hover: #222222;
+    --surface-dark-deep: #121212;
+    --footer-light: #0f2233;
+    --footer-dark: #0a0a0a;
+
+    /* Superfícies Interativas Especiais (Gráfico Hero & Badges) */
+    --brand-surface-subtle: #dbe9f4;
+    --surface-dark-pill-active: #222222;
+    --surface-dark-hover-pill: #262626;
+
+    /* Cores de Destaque dos Testemunhos */
+    --testimonial-crimson: #dc2626;
+    --testimonial-terracotta: #41729b;
+    --testimonial-wine: #9f1239;
+    --testimonial-slate: #1e293b;
+    --testimonial-rose: #be123c;
+    --testimonial-deepwine: #881337;
+    --testimonial-darkred: #991b1b;
+
+    /* Scrollbars Dinâmicos */
+    --scrollbar-track: #f1f5f9;
+    --scrollbar-thumb: #cbd5e1;
+    --scrollbar-hover: #94a3b8;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --scrollbar-track: #0f0f0f;
+      --scrollbar-thumb: #282828;
+      --scrollbar-hover: #3a3a3a;
+    }
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light dark;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--brand-slate);
+    background-color: var(--canvas-light-1);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Animações e Micro-Interações Estilo After Effects */
+@keyframes pulse-subtle {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes halo-expand {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+.animate-halo-expand {
+  animation: halo-expand 2.5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.animate-dash-flow {
+  animation: dash-flow 1.5s linear infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-hover);
+}
+
+/* Utilitário para ocultar scrollbars preservando o scroll */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE e Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari e Opera */
+}
