@@ -8,9 +8,9 @@ export const companyData = {
   phone: "930 335 853",
   phoneFormatted: "+244 930 335 853",
   whatsappUrl: "https://wa.me/244930335853?text=Ol%C3%A1%20VIMORAIZ!%20Gostaria%20de%20solicitar%20uma%20informa%C3%A7%C3%A3o%20e%20or%C3%A7amento%20para%20a%20minha%20empresa.",
+  email: "geral@vimoraiz.com",
   emails: {
-    primary: "geral@vimoraiz.com",
-    secondary: "virgiliozage92@gmail.com"
+    primary: "geral@vimoraiz.com"
   },
   schedule: "Segunda a sexta-feira, das 08h00 às 16h30",
   valueProposition: "Rigor, confiança, proximidade e soluções à medida para uma gestão organizada, segura e eficiente.",

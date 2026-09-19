@@ -202,12 +202,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
                         Resposta em 24h
                       </span>
                     </div>
-                    <span className="text-sm font-semibold text-slate-900 dark:text-slate-200 block">
+                    <a
+                      href={`mailto:${companyData.emails.primary}`}
+                      className="text-sm font-semibold text-slate-900 dark:text-slate-200 hover:text-brand-blue dark:hover:text-white transition-colors block"
+                    >
                       {companyData.emails.primary}
-                    </span>
-                    <span className="text-xs text-slate-500 dark:text-slate-400 block">
-                      {companyData.emails.secondary}
-                    </span>
+                    </a>
                   </div>
                 </div>
 

@@ -25,9 +25,10 @@ export interface CompanyContactInfo {
   phoneRaw: string;
   phoneFormatted: string;
   whatsappUrl: string;
+  email?: string;
   emails: {
     primary: string;
-    secondary: string;
+    secondary?: string;
   };
   schedule: string;
 }

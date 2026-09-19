@@ -6,7 +6,7 @@
 **Localização:** Vila de Viana, Luanda – Angola  
 **Horário:** Segunda a sexta-feira, das 08h00 às 16h30  
 **Telefone / WhatsApp:** 930 335 853  
-**E-mails:** geral.vimoraiz@gmail.com · virgiliozage92@gmail.com
+**E-mail:** geral@vimoraiz.com
 
 ### Posicionamento
 
@@ -377,11 +377,7 @@ Vila de Viana, Luanda – Angola
 
 **E-mail**
 
-geral.vimoraiz@gmail.com
-
-**E-mail alternativo**
-
-virgiliozage92@gmail.com
+geral@vimoraiz.com
 
 **Horário**
 
