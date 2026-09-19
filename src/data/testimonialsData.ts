@@ -40,35 +40,5 @@ export const testimonialsData: TestimonialItem[] = [
     avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=400&q=80",
     ringColor: "var(--testimonial-crimson)", // Vermelho / Carmim central com anel duplo
     stars: 5
-  },
-  {
-    id: "zenith",
-    name: "Dr. Sebastião Luvambo",
-    role: "Presidente do Conselho",
-    company: "Zenith Logística & Navegação, SA",
-    quote: "A auditoria contabilística da VIMORAIZ deu aos nossos acionistas a segurança necessária para avançar com o plano de expansão. Rigor técnico absoluto e recomendações práticas que aplicámos de imediato.",
-    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&h=400&q=80",
-    ringColor: "var(--testimonial-rose)", // Carmim
-    stars: 5
-  },
-  {
-    id: "kwanza-tech",
-    name: "Beatriz Cassoma",
-    role: "Co-Fundadora & COO",
-    company: "Kwanza Digital Solutions, LDA",
-    quote: "O serviço integrado de Contabilidade e Fiscalidade da VIMORAIZ permitiu-nos focar 100% no desenvolvimento de produto. Atendimento próximo, linguagem clara e suporte constante via WhatsApp.",
-    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&h=400&q=80",
-    ringColor: "var(--testimonial-deepwine)", // Vinho profundo
-    stars: 5
-  },
-  {
-    id: "luanda-retail",
-    name: "Paulo Muanza",
-    role: "Diretor Comercial",
-    company: "Luanda Distribuição & Retalho, LDA",
-    quote: "Recomendo vivamente a VIMORAIZ a qualquer empresário em Luanda que queira dormir descansado sabendo que a sua empresa cumpre todas as normas fiscais com elevado padrão de exigência.",
-    avatar: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&h=400&q=80",
-    ringColor: "var(--testimonial-darkred)", // Vermelho escuro
-    stars: 5
   }
 ];

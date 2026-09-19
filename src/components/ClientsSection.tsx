@@ -9,8 +9,6 @@ import {
   ClientLogoAdhepa,
   ClientLogoNFF,
   ClientLogoJFX,
-  ClientLogoZenith,
-  ClientLogoKwanza,
 } from "./clients/ClientLogos";
 import { SectionSpotlight } from "./ui/SectionSpotlight";
 
@@ -19,8 +17,6 @@ const logoMap: Record<string, React.ReactNode> = {
   adhepa: <ClientLogoAdhepa className="h-16 sm:h-20 max-w-[200px] transition-transform duration-300 group-hover:scale-105" />,
   nff: <ClientLogoNFF className="h-16 sm:h-20 max-w-[200px] transition-transform duration-300 group-hover:scale-105" />,
   jfx: <ClientLogoJFX className="h-16 sm:h-20 max-w-[200px] transition-transform duration-300 group-hover:scale-105" />,
-  zenith: <ClientLogoZenith className="h-16 sm:h-20 max-w-[200px] transition-transform duration-300 group-hover:scale-105" />,
-  "kwanza-tech": <ClientLogoKwanza className="h-16 sm:h-20 max-w-[200px] transition-transform duration-300 group-hover:scale-105" />,
 };
 
 export const ClientsSection: React.FC = () => {
@@ -70,7 +66,7 @@ export const ClientsSection: React.FC = () => {
         {/* Marquee Ticker de Logótipos Suave (Fluxo Contínuo) */}
         <div className="relative w-full overflow-hidden py-4 mb-12 sm:mb-16 mask-gradient-x">
           <div className="flex w-max animate-marquee gap-8 sm:gap-12 items-center">
-            {[...clientsData, ...clientsData].map((client, idx) => (
+            {[...clientsData, ...clientsData, ...clientsData, ...clientsData].map((client, idx) => (
               <div
                 key={`ticker-${client.id}-${idx}`}
                 className="flex items-center justify-center px-6 py-4 rounded-xl bg-canvas-light-2/70 dark:bg-surface-dark-card/40 border border-slate-200/60 dark:border-white/5 hover:border-slate-300 dark:hover:border-white/20 transition-all duration-300 grayscale hover:grayscale-0 opacity-75 hover:opacity-100 flex-shrink-0"
@@ -83,8 +79,8 @@ export const ClientsSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Grade de Cartões Executivos dos Clientes */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {/* Grade de Cartões Executivos dos Clientes (4 Clientes Oficiais) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {clientsData.map((client, index) => (
             <motion.div
               key={client.id}

@@ -1,4 +1,4 @@
-﻿import { ClientItem } from "@/types";
+import { ClientItem } from "@/types";
 
 export const clientsData: ClientItem[] = [
   {
@@ -40,25 +40,5 @@ export const clientsData: ClientItem[] = [
     description: "Especialista em obras civis, fornecimento e contratação pública com elevados padrões normativos.",
     accentColor: "#1B3D5C",
     testimonialId: "jfx"
-  },
-  {
-    id: "zenith",
-    name: "Zenith Logística & Navegação, SA",
-    shortName: "ZENITH",
-    sector: "Logística Marítima & Cabotagem",
-    location: "Porto de Luanda, Angola",
-    description: "Operador integrado de transporte de carga, trânsito aduaneiro e navegação costeira.",
-    accentColor: "#0369A1",
-    testimonialId: "zenith"
-  },
-  {
-    id: "kwanza-tech",
-    name: "Kwanza Digital Solutions, LDA",
-    shortName: "KWANZA DIGITAL",
-    sector: "Tecnologia & Fintech",
-    location: "Talatona, Luanda – Angola",
-    description: "Hub de inovação e desenvolvimento de soluções financeiras digitais para o mercado angolano.",
-    accentColor: "#06B6D4",
-    testimonialId: "kwanza-tech"
   }
 ];
