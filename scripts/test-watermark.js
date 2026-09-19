@@ -11,8 +11,10 @@ const svg = `
 </svg>
 `;
 
+const path = require('path');
+
 sharp(Buffer.from(svg))
   .png()
-  .toFile('c:/Users/Administrator/Documents/GitHub/vimorais-website/public/images/test-watermark.png')
+  .toFile(path.join(__dirname, '../public/images/test-watermark.png'))
   .then(() => console.log('Rendered test-watermark.png'))
   .catch(console.error);
