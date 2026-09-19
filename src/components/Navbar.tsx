@@ -20,6 +20,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
     { href: "#valores", label: "Valores" },
     { href: "#servicos", label: "Serviços" },
     { href: "#por-que", label: "Diferenciais" },
+    { href: "#clientes", label: "Clientes" },
     { href: "#testemunhos", label: "Testemunhos" },
     { href: "#contacto", label: "Contacto" }
   ];

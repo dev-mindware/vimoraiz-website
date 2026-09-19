@@ -5,6 +5,7 @@ import { AboutSection } from "@/components/AboutSection";
 import { ValuesSection } from "@/components/ValuesSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { WhyUsSection } from "@/components/WhyUsSection";
+import { ClientsSection } from "@/components/ClientsSection";
 import { TestimonialsWave } from "@/components/TestimonialsWave";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
@@ -38,10 +39,13 @@ export default function Home() {
             {/* 6. Secção 04: Diferenciais Estratégicos (Canvas 1 · Parallax por Colunas e KPIs) */}
             <WhyUsSection />
 
-            {/* 7. Secção 05: Testemunhos (Canvas 2 · Onda Senoidal Flutuante no Scroll) */}
+            {/* 7. Secção 05: Clientes & Parceiros de Referência (Canvas 2 · Logótipos Vetoriais & Marquee) */}
+            <ClientsSection />
+
+            {/* 8. Secção 06: Testemunhos (Canvas 1 · Onda Senoidal Desktop & Carrossel Tátil Mobile) */}
             <TestimonialsWave />
 
-            {/* 8. Secção 06: Contactos & Orçamento (Canvas 1 · Convergência Lateral) */}
+            {/* 9. Secção 07: Contactos & Orçamento (Canvas 2 · Convergência Lateral) */}
             <ContactSection />
           </main>
 
