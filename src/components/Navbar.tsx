@@ -6,6 +6,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { companyData } from "@/data/companyData";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 interface NavbarProps {
   onOpenQuote?: () => void;
@@ -65,9 +66,9 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
           ))}
         </nav>
 
-        {/* Ações Rápidas no Canto Direito (Sem telefone desktop, botão em Azul Corporativo) */}
-        <div className="hidden md:flex items-center gap-4">
-          {/* Botão Solicitar Orçamento - Azul Corporativo VIMORAIZ */}
+        {/* Ações Rápidas no Canto Direito (ThemeToggle + Botão Solicitar Orçamento) */}
+        <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
           <a
             href="#contacto"
             onClick={onOpenQuote}
@@ -77,14 +78,17 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
           </a>
         </div>
 
-        {/* Botão Hambúrguer Mobile */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden p-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-surface-dark-hover transition-colors"
-          aria-label="Alternar Menu"
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Ações Mobile: ThemeToggle + Botão Hambúrguer */}
+        <div className="flex md:hidden items-center gap-2">
+          <ThemeToggle />
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-surface-dark-hover transition-colors"
+            aria-label="Alternar Menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Gaveta Mobile */}

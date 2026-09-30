@@ -120,6 +120,18 @@ export const JsonLd: React.FC = () => {
           ],
         },
       },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://vimoraiz.com/#breadcrumb",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Início",
+            item: "https://vimoraiz.com",
+          },
+        ],
+      },
     ],
   };
 

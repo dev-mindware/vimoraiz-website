@@ -4,8 +4,10 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { SectionSpotlight } from "./ui/SectionSpotlight";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 export const AboutSection: React.FC = () => {
+  const isMobile = useIsMobile();
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -119,7 +121,7 @@ export const AboutSection: React.FC = () => {
           {/* Coluna Direita: Fotografia Oficial do Escritório VIMORAIZ com Parallax */}
           <div className="lg:col-span-5 flex justify-center relative">
             <motion.div
-              style={{ y: photoY, scale: photoScale }}
+              style={{ y: isMobile ? 0 : photoY, scale: isMobile ? 1 : photoScale }}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -138,7 +140,7 @@ export const AboutSection: React.FC = () => {
 
             {/* Selo Executivo Flutuante em Eixo Oposto (Parallax 3D) */}
             <motion.div
-              style={{ y: badgeFloatY, rotate: badgeRotate }}
+              style={{ y: isMobile ? 0 : badgeFloatY, rotate: isMobile ? 0 : badgeRotate }}
               className="absolute -bottom-6 -left-4 sm:-left-6 z-20 hidden sm:flex items-center gap-3 bg-canvas-light-1/95 dark:bg-surface-dark-elevated/95 backdrop-blur-md px-4 py-3 rounded-xl border border-slate-200/90 dark:border-white/10 shadow-xl shadow-slate-300/40 dark:shadow-none"
             >
               <div className="w-10 h-10 rounded-lg bg-brand-navy dark:bg-surface-dark-card-active text-white dark:text-brand-steel flex items-center justify-center font-bold text-sm shadow-xs flex-shrink-0">
@@ -176,7 +178,7 @@ export const AboutSection: React.FC = () => {
           >
             {/* Número em Marca d'Água 01 com Parallax */}
             <motion.span
-              style={{ y: num1Y }}
+              style={{ y: isMobile ? 0 : num1Y }}
               className="text-5xl sm:text-6xl font-bold font-mono text-brand-border/70 dark:text-white/10 select-none flex-shrink-0 leading-none"
             >
               01
@@ -207,7 +209,7 @@ export const AboutSection: React.FC = () => {
           >
             {/* Número em Marca d'Água 02 com Parallax */}
             <motion.span
-              style={{ y: num2Y }}
+              style={{ y: isMobile ? 0 : num2Y }}
               className="text-5xl sm:text-6xl font-bold font-mono text-brand-border/70 dark:text-white/10 select-none flex-shrink-0 leading-none"
             >
               02

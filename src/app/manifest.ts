@@ -8,7 +8,7 @@ export default function manifest(): MetadataRoute.Manifest {
       "Apoiamos empresas na organização contabilística, cumprimento fiscal perante a AGT e auditoria independente em Luanda, Angola.",
     start_url: "/",
     display: "standalone",
-    background_color: "#0f0f0f",
+    background_color: "#ffffff",
     theme_color: "#1b3d5c",
     icons: [
       {

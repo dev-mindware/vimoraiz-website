@@ -140,17 +140,19 @@
     --scrollbar-hover: #94a3b8;
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --scrollbar-track: #0f0f0f;
-      --scrollbar-thumb: #282828;
-      --scrollbar-hover: #3a3a3a;
-    }
+  .dark {
+    --scrollbar-track: #0f0f0f;
+    --scrollbar-thumb: #282828;
+    --scrollbar-hover: #3a3a3a;
   }
 
   html {
     scroll-behavior: smooth;
-    color-scheme: light dark;
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
   }
 
   body {

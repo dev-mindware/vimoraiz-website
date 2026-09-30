@@ -5,16 +5,23 @@ import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import { ChevronRight } from "lucide-react";
 import { servicesData } from "@/data/servicesData";
 import { ServiceItem } from "@/types";
+import dynamic from "next/dynamic";
 import { ScoopedCard } from "@/components/ui/ScoopedCard";
-import { ServiceDetailModal } from "@/components/ServiceDetailModal";
 import { SectionSpotlight } from "@/components/ui/SectionSpotlight";
+
+const ServiceDetailModal = dynamic(
+  () => import("@/components/ServiceDetailModal").then((mod) => mod.ServiceDetailModal),
+  { ssr: false }
+);
 import { useQuote } from "@/context/QuoteContext";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 interface ServicesSectionProps {
   onSelectServiceForQuote?: (serviceTitle: string) => void;
 }
 
 export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServiceForQuote }) => {
+  const isMobile = useIsMobile();
   const { scrollToContact } = useQuote();
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -79,7 +86,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
         {/* CABEÇALHO ASSIMÉTRICO COM ENTRADA EM PARALLAX                            */}
         {/* ========================================================================= */}
         <motion.div
-          style={{ y: headerY }}
+          style={{ y: isMobile ? 0 : headerY }}
           className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16"
         >
           {/* Coluna Esquerda: Eyebrow e Título */}
@@ -153,7 +160,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
         {/* CARROSSEL HORIZONTAL DE CARDS COM CANTO RECORTADO (SCOOPED CORNER)        */}
         {/* ========================================================================= */}
         <motion.div
-          style={{ y: cardsY }}
+          style={{ y: isMobile ? 0 : cardsY }}
           ref={scrollContainerRef}
           className="flex items-center gap-6 overflow-x-auto pb-4 pt-2 no-scrollbar scroll-smooth"
         >

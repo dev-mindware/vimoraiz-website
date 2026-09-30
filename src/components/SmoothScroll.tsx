@@ -5,9 +5,11 @@ import Lenis from "lenis";
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    // Respeito estrito a acessibilidade e prefers-reduced-motion
+    // Respeito a acessibilidade e dispositivos móveis (evita hijacking de toque que atrasa frames e gera secções fuscas)
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) {
+    const isMobileDevice = window.innerWidth < 768 || "ontouchstart" in window;
+    
+    if (prefersReducedMotion || isMobileDevice) {
       return;
     }
 
@@ -16,7 +18,6 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       wheelMultiplier: 1,
-      touchMultiplier: 1.8,
       infinite: false,
     });
 

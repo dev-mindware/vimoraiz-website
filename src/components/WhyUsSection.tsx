@@ -4,7 +4,8 @@ import React, { useEffect, useState, useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { Shield, Users, MessageSquare, Sliders, Cpu, Compass, ArrowRight } from "lucide-react";
 import { companyData } from "@/data/companyData";
-import { SectionSpotlight } from "@/components/ui/SectionSpotlight";
+import { SectionSpotlight } from "./ui/SectionSpotlight";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const pillarIcons: Record<string, React.ElementType> = {
   Shield,
@@ -55,6 +56,7 @@ const CounterNumber: React.FC<{ value: number; suffix: string }> = ({ value, suf
 };
 
 export const WhyUsSection: React.FC = () => {
+  const isMobile = useIsMobile();
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -146,7 +148,7 @@ export const WhyUsSection: React.FC = () => {
         {/* ========================================================================= */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
           {/* Coluna 1 */}
-          <motion.div style={{ y: col1Y }} className="space-y-6">
+          <motion.div style={{ y: isMobile ? 0 : col1Y }} className="space-y-6">
             {col1Pillars.map((pillar) => {
               const Icon = pillarIcons[pillar.iconName] || Shield;
               return (
@@ -171,7 +173,7 @@ export const WhyUsSection: React.FC = () => {
           </motion.div>
 
           {/* Coluna 2 */}
-          <motion.div style={{ y: col2Y }} className="space-y-6">
+          <motion.div style={{ y: isMobile ? 0 : col2Y }} className="space-y-6">
             {col2Pillars.map((pillar) => {
               const Icon = pillarIcons[pillar.iconName] || Shield;
               return (
@@ -196,7 +198,7 @@ export const WhyUsSection: React.FC = () => {
           </motion.div>
 
           {/* Coluna 3 */}
-          <motion.div style={{ y: col3Y }} className="space-y-6">
+          <motion.div style={{ y: isMobile ? 0 : col3Y }} className="space-y-6">
             {col3Pillars.map((pillar) => {
               const Icon = pillarIcons[pillar.iconName] || Shield;
               return (
@@ -225,7 +227,7 @@ export const WhyUsSection: React.FC = () => {
         {/* 4. PAINEL EXECUTIVO DE MÉTRICAS / KPIS COM ELEVAÇÃO PARALLAX             */}
         {/* ========================================================================= */}
         <motion.div
-          style={{ scale: kpiScale, y: kpiY }}
+          style={{ scale: isMobile ? 1 : kpiScale, y: isMobile ? 0 : kpiY }}
           className="p-8 sm:p-12 rounded-xl bg-brand-navy-dark dark:bg-surface-dark-deep text-white border border-brand-navy-border dark:border-white/10 shadow-xl"
         >
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-white/10 dark:divide-white/10">

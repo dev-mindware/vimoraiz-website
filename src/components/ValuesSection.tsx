@@ -17,6 +17,7 @@ import { companyData } from "@/data/companyData";
 import { SpotlightCard } from "@/components/ui/SpotlightCard";
 import { VimoraizWatermark } from "@/components/ui/VimoraizWatermark";
 import { SectionSpotlight } from "@/components/ui/SectionSpotlight";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 // Mapeamento exato de ícones para os 10 valores conforme referência visual
 const iconMap: Record<string, React.ElementType> = {
@@ -32,6 +33,7 @@ const iconMap: Record<string, React.ElementType> = {
 };
 
 export const ValuesSection: React.FC = () => {
+  const isMobile = useIsMobile();
   const [activeCard, setActiveCard] = useState<string>("01");
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -94,10 +96,10 @@ export const ValuesSection: React.FC = () => {
           {/* Marca d'água VIMORAIZ oficial flutuando no scroll */}
           <motion.div
             style={{
-              y: watermarkY,
-              rotate: watermarkRotate,
-              scale: watermarkScale,
-              opacity: watermarkOpacity,
+              y: isMobile ? 0 : watermarkY,
+              rotate: isMobile ? 0 : watermarkRotate,
+              scale: isMobile ? 1 : watermarkScale,
+              opacity: isMobile ? 0.05 : watermarkOpacity,
             }}
             className="absolute -top-10 sm:-top-14 -right-4 sm:-right-8 pointer-events-none z-0 dark:opacity-20"
           >
@@ -140,7 +142,7 @@ export const ValuesSection: React.FC = () => {
           >
             {/* Linha 1 (Cards 01 a 05) */}
             <motion.div
-              style={{ y: row1Y }}
+              style={{ y: isMobile ? 0 : row1Y }}
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5"
             >
               {companyData.values.slice(0, 5).map((val, idx) => {
@@ -166,7 +168,7 @@ export const ValuesSection: React.FC = () => {
 
             {/* Linha 2 (Cards 06 a 10) com Segundo Escalão de Parallax */}
             <motion.div
-              style={{ y: row2Y }}
+              style={{ y: isMobile ? 0 : row2Y }}
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5"
             >
               {companyData.values.slice(5, 10).map((val, idx) => {

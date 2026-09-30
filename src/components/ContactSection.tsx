@@ -18,6 +18,7 @@ import { servicesData } from "@/data/servicesData";
 import { SectionSpotlight } from "@/components/ui/SectionSpotlight";
 
 import { useQuote } from "@/context/QuoteContext";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 interface ContactSectionProps {
   initialService?: string;
@@ -33,7 +34,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
   const { selectedService: contextService } = useQuote();
   const effectiveService = initialService || contextService || "";
 
-  // Motions dinâmicos no scroll para a secção de contacto
+  const isMobile = useIsMobile();
+
+  // Motions dinâmicos no scroll para a secção de contacto (apenas em desktop)
   const leftX = useTransform(scrollYProgress, [0.1, 0.45], [-40, 0]);
   const leftOpacity = useTransform(scrollYProgress, [0.1, 0.45], [0, 1]);
   const rightX = useTransform(scrollYProgress, [0.15, 0.5], [40, 0]);
@@ -120,7 +123,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
           {/* COLUNA ESQUERDA: INFORMAÇÃO INSTITUCIONAL & CANAIS DIRETOS                */}
           {/* ========================================================================= */}
           <motion.div
-            style={{ x: leftX, opacity: leftOpacity }}
+            style={{ x: isMobile ? 0 : leftX, opacity: isMobile ? 1 : leftOpacity }}
             className="lg:col-span-5 flex flex-col justify-between"
           >
             <div>
@@ -235,7 +238,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
 
             {/* Banner Institucional de Sigilo & Proteção de Dados com Parallax */}
             <motion.div
-              style={{ y: trustCardY }}
+              style={{ y: isMobile ? 0 : trustCardY }}
               className="p-4 sm:p-5 rounded-xl bg-brand-mist dark:bg-canvas-dark-2 border border-brand-border-dark dark:border-white/10 flex items-start gap-3.5 shadow-xs"
             >
               <div className="w-8 h-8 rounded-lg bg-brand-navy text-white flex items-center justify-center flex-shrink-0 mt-0.5 shadow-xs">
@@ -256,7 +259,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialService =
           {/* COLUNA DIREITA: FORMULÁRIO COMERCIAL REFINADO                             */}
           {/* ========================================================================= */}
           <motion.div
-            style={{ x: rightX, opacity: rightOpacity }}
+            style={{ x: isMobile ? 0 : rightX, opacity: isMobile ? 1 : rightOpacity }}
             className="lg:col-span-7"
           >
             <div className="bg-canvas-light-2 dark:bg-canvas-dark-2 rounded-2xl p-7 sm:p-10 border border-slate-200/90 dark:border-white/10 shadow-xl shadow-slate-200/60 dark:shadow-black/40">

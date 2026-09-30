@@ -6,19 +6,21 @@ import { ArrowRight, CheckCircle2, ShieldCheck, MessageCircle, FileText } from "
 import HeroGraphic from "./HeroGraphic";
 import { companyData } from "@/data/companyData";
 import { SectionSpotlight } from "./ui/SectionSpotlight";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 interface HeroProps {
   onOpenDemo?: () => void;
 }
 
 export default function Hero({ onOpenDemo }: HeroProps) {
+  const isMobile = useIsMobile();
   const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
   });
 
-  // Parallax arrojado e altamente chamativo na coluna de texto e CTAs
+  // Parallax chamativo na coluna de texto e CTAs (apenas em desktop)
   const yHeadline = useTransform(scrollYProgress, [0, 1], [0, 75]);
   const ySubheadline = useTransform(scrollYProgress, [0, 1], [0, 105]);
   const yCTA = useTransform(scrollYProgress, [0, 1], [0, 140]);
@@ -40,12 +42,12 @@ export default function Hero({ onOpenDemo }: HeroProps) {
           {/* Contexto Oficial VIMORAIZ — Sem badge acima do título    */}
           {/* ======================================================== */}
           <motion.div
-            style={{ opacity: opacityHero }}
+            style={{ opacity: isMobile ? 1 : opacityHero }}
             className="lg:col-span-7 flex flex-col items-start text-left"
           >
             {/* Primary Headline Oficial VIMORAIZ */}
             <motion.h1
-              style={{ y: yHeadline }}
+              style={{ y: isMobile ? 0 : yHeadline }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -58,7 +60,7 @@ export default function Hero({ onOpenDemo }: HeroProps) {
 
             {/* Subheadline Oficial */}
             <motion.h2
-              style={{ y: ySubheadline }}
+              style={{ y: isMobile ? 0 : ySubheadline }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
@@ -69,7 +71,7 @@ export default function Hero({ onOpenDemo }: HeroProps) {
 
             {/* Explanatory Body Copy Oficial VIMORAIZ */}
             <motion.p
-              style={{ y: ySubheadline }}
+              style={{ y: isMobile ? 0 : ySubheadline }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
@@ -80,7 +82,7 @@ export default function Hero({ onOpenDemo }: HeroProps) {
 
             {/* CTA Buttons - Azul Corporativo (Sem preto) */}
             <motion.div
-              style={{ y: yCTA }}
+              style={{ y: isMobile ? 0 : yCTA }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
@@ -111,7 +113,7 @@ export default function Hero({ onOpenDemo }: HeroProps) {
 
             {/* Trust Badges under CTA */}
             <motion.div
-              style={{ y: yCTA }}
+              style={{ y: isMobile ? 0 : yCTA }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.45 }}
